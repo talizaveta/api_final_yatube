@@ -3,6 +3,8 @@ from django.db import models
 
 User = get_user_model()
 
+MAX_LENGTH = 15
+
 
 class Group(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
@@ -41,7 +43,7 @@ class Post(models.Model):
         verbose_name_plural = 'Посты'
 
     def __str__(self):
-        return self.text[:15]
+        return self.text[:MAX_LENGTH]
 
 
 class Comment(models.Model):
